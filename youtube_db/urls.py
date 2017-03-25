@@ -10,4 +10,3 @@ urlpatterns = patterns('',
     url(r'^song$','main.views.song',name='adminSongPlaylist'),
 )
 
-
