@@ -29,7 +29,7 @@ class finalplaylist(models.Model):
 class hostsong(models.Model):
     hostedsession = models.ForeignKey(djsessions, on_delete=models.CASCADE)
     song = models.CharField(max_length = 250 , default = 'NULL')
-    counter = models.CharField(max_length = 250 , default = 'NULL')
+    counter = models.IntegerField(max_length = 250 , default = 'NULL')
 
     def __str__(self):
         return self.song

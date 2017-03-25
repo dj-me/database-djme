@@ -2,10 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from main.models import user , hostsong , djsessions , finalplaylist
 import json,requests
+from django.db.models import Count
 # Create your views here.
 
 def song(request, foo):
-	# a = user.objects.all()
-	a = finalplaylist.objects.all().filter(hostedsession=foo)[0]
-	return HttpResponse(a.hostname)
+	aa = djsessions.objects.all().filter(hostedsession=foo)
+	songSorted = hostsong.objects.all().filter(hostedsession=aa).order_by('counter')
+	return HttpResponse(songSorted)
 
