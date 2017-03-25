@@ -1,0 +1,41 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.db import models, migrations
+
+
+class Migration(migrations.Migration):
+
+    dependencies = [
+    ]
+
+    operations = [
+        migrations.CreateModel(
+            name='hostsong',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('song', models.CharField(default=b'NULL', max_length=250)),
+                ('counter', models.CharField(default=b'NULL', max_length=250)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.CreateModel(
+            name='user',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('hostname', models.CharField(default=b'NULL', max_length=250)),
+                ('hotspot', models.CharField(default=b'NULL', max_length=250)),
+            ],
+            options={
+            },
+            bases=(models.Model,),
+        ),
+        migrations.AddField(
+            model_name='hostsong',
+            name='hostname',
+            field=models.ForeignKey(to='main.user'),
+            preserve_default=True,
+        ),
+    ]
