@@ -7,6 +7,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^song$','main.views.song',name='adminSongPlaylist'),
+    url(r'^song/(?P<foo>\w+)','main.views.song',name='adminSongPlaylist'),
 )
 
