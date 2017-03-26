@@ -27,6 +27,7 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = (
@@ -52,6 +53,23 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'youtube_db.urls'
 
 WSGI_APPLICATION = 'youtube_db.wsgi.application'
+
+TEMPLATE_PATH = os.path.join(BASE_DIR, 'templates')
+
+TEMPLATE_DIRS = (
+    TEMPLATE_PATH,
+)
+
+
+STATIC_ROOT = 'staticfiles'
+STATIC_PATH = os.path.join(BASE_DIR,'chatbot/static')
+
+STATIC_URL = '/static/' 
+
+STATICFILES_DIRS = (
+    STATIC_PATH,
+)
+
 
 
 # Database

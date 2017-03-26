@@ -21,6 +21,7 @@ class finalplaylist(models.Model):
     hostname = models.ForeignKey(user, on_delete=models.CASCADE)
     hostedsession = models.ForeignKey(djsessions, on_delete=models.CASCADE)
     pid = models.CharField(max_length = 250 , default = 'NULL')
+    url = models.CharField(max_length = 250 , default = 'NULL')
 
     def __str__(self):
         return self.pid

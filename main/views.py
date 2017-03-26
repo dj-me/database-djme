@@ -8,5 +8,14 @@ from django.db.models import Count
 def song(request, foo):
 	aa = djsessions.objects.all().filter(hostedsession=foo)
 	songSorted = hostsong.objects.all().filter(hostedsession=aa).order_by('counter')
-	return HttpResponse(songSorted)
+	finalList = songSorted.reverse()
+	# print finalList
+	# return HttpResponse(finalList)
+	array = []
+	for item in finalList:
+		array.append(item.song)
 
+	# return HttpResponse(finalList)
+	context_dict = {}
+	context_dict['array'] = array
+	return render(request,'main/nava-radio-home.html',context_dict)
